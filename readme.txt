@@ -1,9 +1,15 @@
-Jar4MultChannel.jarÊ¹ÓÃ·½Ê½:
+ç¾å›¢å¤šæ¸ é“æ‰“åŒ…çš„javaå®ç°ã€‚
 
-ÔÚjarÎÄ¼şÍ¬¼¶Ä¿Â¼ÏÂ·ÅÖÃchannel.txtºÍoriginal.apkÎÄ¼ş;
+clone é¡¹ç›®ä¹‹åï¼Œé¦–å…ˆéœ€è¦ä½¿ç”¨è·‘gradleçš„ runnableJarä»»åŠ¡ç”ŸæˆJar4MultChannel.jar
+(Gradle Projects -> MultChannel -> other -> runnableJar)
+(ç”Ÿæˆçš„jaræ–‡ä»¶è·¯å¾„ï¼šé¡¹ç›®æ ¹ç›®å½•/build/libs)
 
-channel.txtÎÄ¼şÖĞÇşµÀºÅºÍÓÎÏ·Á´½ÓÒÔºº×Ö¡°·Ö¸î¡±·Ö¿ª(SF0001·Ö¸îhttp://api.49you.com/User/Connectlogin/loginGameAdv?platformid=9&newadv=1&advid=150681&subtype=0001);
+Jar4MultChannel.jarä½¿ç”¨æ–¹å¼:
 
-original.apkÊÇÒÑ¾­Ç©Ãû¹ıµÄapkÎÄ¼ş;
+åœ¨jaræ–‡ä»¶åŒçº§ç›®å½•ä¸‹æ”¾ç½®channel.txtå’Œoriginal.apkæ–‡ä»¶;
 
-Ê¹ÓÃÃüÁîĞĞÏÈ½øÈëµ½jarËùÔÚµÄÎ»ÖÃ£¬È»ºóÔËĞĞÃüÁî java -jar jar4MultChannel.jar ¾Í¿ÉÒÔ×øµÈ¶àÇşµÀ´ò°üÁË¡£
+channel.txtæ–‡ä»¶ä¸­æ¸ é“å·å’Œæ¸¸æˆé“¾æ¥ä»¥æ±‰å­—â€œåˆ†å‰²â€åˆ†å¼€(SF0001åˆ†å‰²http://api.49you.com/User/Connectlogin/loginGameAdv?platformid=9&newadv=1&advid=150681&subtype=0001);
+
+original.apkæ˜¯å·²ç»ç­¾åè¿‡çš„apkæ–‡ä»¶;
+
+ä½¿ç”¨å‘½ä»¤è¡Œå…ˆè¿›å…¥åˆ°jaræ‰€åœ¨çš„ä½ç½®ï¼Œç„¶åè¿è¡Œå‘½ä»¤ java -jar jar4MultChannel.jar å°±å¯ä»¥åç­‰å¤šæ¸ é“æ‰“åŒ…äº†ã€‚
