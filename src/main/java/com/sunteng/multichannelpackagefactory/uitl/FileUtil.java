@@ -57,7 +57,9 @@ public class FileUtil {
             if(!Utils.isEmpty(fileName)){
                 file = new File(fileName);
                 if (file != null && !file.exists()){
-                    file.getParentFile().mkdirs();
+                    if (file.getParentFile() != null){
+                        file.getParentFile().mkdirs();
+                    }
                     file.createNewFile();
                 }
             }
@@ -112,8 +114,8 @@ public class FileUtil {
         FileInputStream fis = null;
         BufferedReader reader = null;
         try{
-            fis = new FileInputStream(new File(Contants.CHANNEL_FILE_PATH));
-            reader = new BufferedReader(new InputStreamReader(fis, Contants.CHARSET_TYPE));
+            fis = new FileInputStream(new File(Constants.CHANNEL_FILE_PATH));
+            reader = new BufferedReader(new InputStreamReader(fis, Constants.CHARSET_TYPE));
             String result;
             while (null != (result = reader.readLine())){
                 String [] strArray = result.split("分割");

@@ -1,6 +1,6 @@
 package com.sunteng.multichannelpackagefactory;
 
-import com.sunteng.multichannelpackagefactory.uitl.Contants;
+import com.sunteng.multichannelpackagefactory.uitl.Constants;
 import com.sunteng.multichannelpackagefactory.uitl.FileUtil;
 import com.sunteng.multichannelpackagefactory.uitl.IOUtil;
 import com.sunteng.multichannelpackagefactory.uitl.Utils;
@@ -34,7 +34,7 @@ public class Main {
      * 开始多渠道打包
      */
     public void getChannelApk(){
-        if (!FileUtil.fileExit(Contants.CHANNEL_FILE_PATH)){
+        if (!FileUtil.fileExit(Constants.CHANNEL_FILE_PATH)){
             System.err.println("当前目录下没有渠道文件:channel.txt,请检查!");
             return;
         }
@@ -44,13 +44,13 @@ public class Main {
             return;
         }
 
-        if (!FileUtil.fileExit(Contants.CHANNEL_APK_PATH)){
+        if (!FileUtil.fileExit(Constants.CHANNEL_APK_PATH)){
             System.out.println("新建存放渠道APK的文件夹....");
-            File file = new File(Contants.CHANNEL_APK_PATH);
+            File file = new File(Constants.CHANNEL_APK_PATH);
             file.mkdir();
         }
 
-        if (!FileUtil.fileExit(Contants.ORIGINAL_APK_FILE)){
+        if (!FileUtil.fileExit(Constants.ORIGINAL_APK_FILE)){
             System.err.println("老铁，当前目录下找不到原始APK文件:original.apk!");
             return;
         }
@@ -65,14 +65,14 @@ public class Main {
                 String name = entry.getKey();
                 String link = entry.getValue();
                 System.out.println("开始打包第"+count+"个渠道包，渠道名为："+name+"，链接为："+link);
-                String apk = Contants.CHANNEL_APK_PATH + File.separator + name + Contants.APK_SUFFIX;
-                FileUtil.copy(Contants.ORIGINAL_APK_FILE, apk);
+                String apk = Constants.CHANNEL_APK_PATH + File.separator + name + Constants.APK_SUFFIX;
+                FileUtil.copy(Constants.ORIGINAL_APK_FILE, apk);
                 ZipFile zipFile = new ZipFile(apk);
                 ZipParameters parameters = new ZipParameters();
                 parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
                 parameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_NORMAL);
                 parameters.setRootFolderInZip("META-INF/");
-                String channelFilePath = Contants.CHANNEL_APK_PATH + File.separator + "channel";
+                String channelFilePath = "channel_"+name;
                 File  channelFile = new File(channelFilePath);
                 if (!FileUtil.isFileExit(channelFile)){
                     FileUtil.createNewFile(channelFilePath);
@@ -84,6 +84,7 @@ public class Main {
                 Utils.printStackTrace(e);
             }
         }
+        System.exit(0);
     }
 
 }

@@ -3,7 +3,7 @@ package com.sunteng.multichannelpackagefactory.uitl;
 /**
  * Created by xiaozhonggao on 2017/5/10.
  */
-public class Contants {
+public class Constants {
     /**
      * 存放一些常量
      */
