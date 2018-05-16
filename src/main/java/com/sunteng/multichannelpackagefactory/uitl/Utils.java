@@ -15,11 +15,11 @@ public class Utils {
      * @return
      */
     public static boolean isEmpty(String str){
-        boolean isEmput = false;
+        boolean isEmpty = false;
         if (str == null || "".equals(str)){
-            isEmput = true;
+            isEmpty = true;
         }
-        return isEmput;
+        return isEmpty;
     }
 
     /**

@@ -9,15 +9,53 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 
 /**
+ * 文件操作工具类
  * Created by xiaozhonggao on 2017/5/10.
  */
 
 
 public class FileUtil {
-    /**
-     * 文件操作工具
-     */
 
+    /**
+     * 删除文件
+     * @param path
+     */
+    public static boolean deleteFile(String path) {
+        if (Utils.isEmpty(path)) {
+            return false;
+        }
+
+        File file = new File(path);
+
+        if (!file.exists()) {
+            return false;
+        }
+
+        return deleteFile(file);
+    }
+
+    /**
+     * 删除文件
+     * @param file
+     */
+    public static boolean deleteFile(File file) {
+
+        if (file == null || !file.exists()) {
+            return false;
+        }
+
+        if (file.isDirectory()) {
+            File[] allContents = file.listFiles();
+
+            if (allContents != null) {
+                for (File subFile : allContents) {
+                    deleteFile(subFile);
+                }
+            }
+        }
+
+        return file.delete();
+    }
 
     /**
      * 判断文件是否存在
