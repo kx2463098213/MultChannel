@@ -1,15 +1,12 @@
 美团多渠道打包的java实现。
 
-clone 项目之后，首先需要使用跑gradle的 runnableJar任务生成Jar4MultChannel.jar
-(Gradle Projects -> MultChannel -> other -> runnableJar)
+clone 项目之后，首先需要使用跑gradle的 runnableJar任务生成Jar4MultiChannel.jar
+(Gradle Projects -> MultiChannel -> other -> runnableJar)
 (生成的jar文件路径：项目根目录/build/libs)
 
-Jar4MultChannel.jar使用方式:
+Jar4MultiChannel.jar使用方式: 命令行使用 -h 查看参数说明。
 
-在jar文件同级目录下放置channel.txt和original.apk文件;
-
-channel.txt文件中渠道号和游戏链接以汉字“分割”分开(SF0001分割http://api.49you.com/User/Connectlogin/loginGameAdv?platformid=9&newadv=1&advid=150681&subtype=0001);
-
-original.apk是已经签名过的apk文件;
-
-使用命令行先进入到jar所在的位置，然后运行命令 java -jar jar4MultChannel.jar 就可以坐等多渠道打包了。
+注：
+1、jar 包使用对参数顺序并无要求；
+2、不使用任何参数的情况下，需要保证和 jar 包相同的目录下存在 original.apk 和 channel.txt 文件；
+3、存放渠道号的 txt 文件中的渠道号按行分割；
