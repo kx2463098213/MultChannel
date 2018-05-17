@@ -1,6 +1,6 @@
 ## 美团多渠道打包的 `java` 实现。
 
-[`Jar` 包下载](https://github.com/kx2463098213/MultChannel/release/Jar4MultiChannel.jar)
+[`Jar` 包下载](https://github.com/kx2463098213/MultChannel/blob/master/release/Jar4MultiChannel.jar)
 
 ### 下载代码并生成 `Jar` 包
 
