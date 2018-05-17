@@ -11,8 +11,8 @@ public class Utils {
 
     /**
      * 判断字符串是否为空
-     * @param str
-     * @return
+     * @param  str 需要进行判断的字符串
+     * @return true 为空
      */
     public static boolean isEmpty(String str){
         boolean isEmpty = false;
@@ -24,7 +24,7 @@ public class Utils {
 
     /**
      * 控制台打印异常信息
-     * @param e
+     * @param e 抛出的异常
      */
     public static void printStackTrace(Exception e){
         StringWriter strWriter = new StringWriter();

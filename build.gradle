@@ -29,12 +29,15 @@ tasks.withType(JavaCompile){
 apply plugin:'java'
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'net.lingala.zip4j:zip4j:1.3.2'
-    implementation 'commons-cli:commons-cli:1.4'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'net.lingala.zip4j:zip4j:1.3.2'
+    compile 'commons-cli:commons-cli:1.4'
 }
 
 task runnableJar(dependsOn:['customClean', 'compileJava'], type : Jar){
+
+    // 先清理缓存再编译
+    compileJava.mustRunAfter customClean
 
     archiveName = 'Jar4MultiChannel.jar'
     //需打包的资源所在的路径集
