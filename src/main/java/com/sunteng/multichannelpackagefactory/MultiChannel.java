@@ -5,6 +5,8 @@ import com.sunteng.multichannelpackagefactory.uitl.FileUtil;
 import com.sunteng.multichannelpackagefactory.uitl.Utils;
 
 import net.lingala.zip4j.core.ZipFile;
+import net.lingala.zip4j.exception.ZipException;
+import net.lingala.zip4j.model.FileHeader;
 import net.lingala.zip4j.model.ZipParameters;
 import net.lingala.zip4j.util.Zip4jConstants;
 
@@ -17,6 +19,7 @@ import org.apache.commons.cli.ParseException;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 多渠道打包任务的实现
@@ -131,6 +134,7 @@ class MultiChannel {
             System.err.println("任务失败，原始 APK 文件 " + original_apk_path + " 不存在!");
             return;
         }
+        cleanApk(original_apk_path);
 
         File file = new File(Constants.CHANNEL_APK_PATH);
         if (FileUtil.isFileExit(file)){
@@ -189,5 +193,27 @@ class MultiChannel {
         }
     }
 
+    /**
+     * 某些情况下原生文件可能已经是渠道包，需要移除里面的渠道标识文件
+     * @param path 文件名称（含路径）
+     */
+    private void cleanApk(String path){
+        try {
+            ZipFile file = new ZipFile(path);
+            List<FileHeader> files = file.getFileHeaders();
+            ArrayList<String> removeList = new ArrayList<>();
+            for (int i = 0; i < files.size(); i++){
+                String fileName = files.get(i).getFileName();
+                if (fileName.startsWith("META-INF/channel_")) {
+                    removeList.add(fileName);
+                }
+            }
+            for (String name : removeList){
+                file.removeFile(name);
+            }
+        } catch (ZipException e) {
+            Utils.printStackTrace(e);
+        }
+    }
 
 }

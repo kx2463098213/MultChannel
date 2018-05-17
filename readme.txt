@@ -10,3 +10,4 @@ Jar4MultiChannel.jar使用方式: 命令行使用 -h 查看参数说明。
 1、jar 包使用对参数顺序并无要求；
 2、不使用任何参数的情况下，需要保证和 jar 包相同的目录下存在 original.apk 和 channel.txt 文件；
 3、存放渠道号的 txt 文件中的渠道号按行分割；
+4、原始 apk 文件必须使用的是 v1 签名；
